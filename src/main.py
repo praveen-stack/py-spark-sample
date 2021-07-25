@@ -36,9 +36,9 @@ def main():
                                ])
 
     rollno_df = spark.read.format("org.apache.spark.csv").option("header", "false").option("delimiter", "	").schema(
-        rollno_schema).csv("StudentRollNo.txt")
+        rollno_schema).csv("resources/StudentRollNo.txt")
     marks_df = spark.read.format("org.apache.spark.csv").option("header", "false").option("delimiter", "	").schema(
-        marks_schema).csv("StudentMarks.txt")
+        marks_schema).csv("resources/StudentMarks.txt")
 
     """Slicing the Mark columns explicitly"""
     mark_cols = marks_df.columns[1:7]
